@@ -1,14 +1,14 @@
 [
     {
       "category": "Cohorting",
-      "prompt": "Count of Users by first purchase date"
+      "prompt": "Top 10 industry by Sales for G Cloud for Q3 2024 in Euros"
     },
     {
       "category": "Audience Building",
-      "prompt":"Users who have purchased more than 100 dollars worth of Calvin Klein products and have purchased in the last 30 days"
+      "prompt":"Total sales closed by Salesperson for the Data Foundations accelerator for G Cloud for Q3 2024 in Euros"
     },
     {
       "category": "Period Comparison",
-      "prompt": "Total revenue by category this year compared to last year in a line chart with year pivoted"
+      "prompt": "Total closed won G Cloud sales by partner offer this year compared to last year in a line chart pivoted on partner offer"
     }
 ]

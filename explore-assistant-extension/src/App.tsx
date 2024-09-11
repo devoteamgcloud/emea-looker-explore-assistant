@@ -8,7 +8,9 @@ import AgentPage from './pages/AgentPage'
 const ExploreApp = () => {
   // load dimensions, measures and examples into the state
   useLookerFields()
+  console.log("use looker fields completed")
   useBigQueryExamples()
+  console.log("use bigquery examples completed")
 
   return (
     <>

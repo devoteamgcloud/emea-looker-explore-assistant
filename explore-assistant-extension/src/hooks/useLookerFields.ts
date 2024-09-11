@@ -31,6 +31,7 @@ export const useLookerFields = () => {
     // if the hook has already been called, return
     if (hasFetched.current) return
 
+    console.log("length of supported explores: " + supportedExplores.length)
     // if there are no supported explores or the semantic model is already loaded, return
     if (supportedExplores.length === 0 || isSemanticModelLoaded) {
       return
@@ -44,7 +45,10 @@ export const useLookerFields = () => {
       exploreId: string,
       exploreKey: string,
     ): Promise<SemanticModel | undefined> => {
+      console.log("fetching semantic model")
+
       if (!modelName || !exploreId) {
+        console.log("model name or explore id not found, error")
         showBoundary({
           message: 'Default Looker Model or Explore is blank or unspecified',
         })
@@ -85,7 +89,7 @@ export const useLookerFields = () => {
             description,
             tags,
           }))
-
+        console.log("semantic model loaded : " + modelName)
         return {
           exploreId,
           modelName,
@@ -104,6 +108,7 @@ export const useLookerFields = () => {
     const loadSemanticModels = async () => {
       try {
         const fetchPromises = supportedExplores.map((exploreKey) => {
+          console.log("exploreKey: " + exploreKey)
           const [modelName, exploreId] = exploreKey.split(':')
           return fetchSemanticModel(modelName, exploreId, exploreKey).then(
             (model) => ({ exploreKey, model })
@@ -128,6 +133,8 @@ export const useLookerFields = () => {
       }
     }
 
+    console.log("loading semantic models")
     loadSemanticModels()
+    console.log("finished loading semantic models")
   }, [supportedExplores])
 }

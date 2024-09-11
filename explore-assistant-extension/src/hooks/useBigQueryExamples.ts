@@ -58,6 +58,8 @@ export const useBigQueryExamples = () => {
       FROM
         \`${datasetName}.explore_assistant_examples\`
     `
+
+    console.log(sql)
     return runSQLQuery(sql).then((response) => {
       if(response.length === 0 || !Array.isArray(response)) {
         return
@@ -81,6 +83,7 @@ export const useBigQueryExamples = () => {
     FROM
       \`${datasetName}.explore_assistant_refinement_examples\`
   `
+    console.log(sql)
     return runSQLQuery(sql).then((response) => {
       if(response.length === 0 || !Array.isArray(response)) {
         return
@@ -104,6 +107,8 @@ export const useBigQueryExamples = () => {
       FROM
         \`${datasetName}.explore_assistant_samples\`
     `
+
+    console.log(sql)
     return runSQLQuery(sql).then((response) => {
       const exploreSamples: ExploreSamples = {}
       if(response.length === 0 || !Array.isArray(response)) {
